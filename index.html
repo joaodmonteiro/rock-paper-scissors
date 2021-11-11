@@ -1,118 +1,18 @@
 <html>
     <head>
+        <title>Rock, Paper, Scissors</title>
 
+        <script src="script.js" defer></script>
+
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <script>
-            
-            
+        <header>Rock, Paper, Scissors</header>
+        <div id="startButton">
+            <input type="button" class="startButton" value="Start Game">
+        </div>
+        <div id="game">
 
-            function computerPlay() {
-                let randomNumber = Math.floor(Math.random() * 3) + 1;
-                
-                if(randomNumber == 1)
-                {
-                    return('Rock');
-                }
-                else if (randomNumber == 2)
-                {
-                    return('Paper');
-                }
-                else return('Scissors');
-            }
-
-            function playRound(playerSelection, computerSelection) {
-                if(playerSelection.toLowerCase() === 'rock')
-                {
-                    switch(computerSelection){
-                        case 'Paper': 
-                            return "You lose! Paper beats Rock!";
-                            break;
-                        case 'Scissors': 
-                            return "You win! Rock beats Scissors!";
-                            break;
-                        case 'Rock': 
-                            return "Draw! Play again!";
-                            break;
-                    }
-                }
-                else if(playerSelection.toLowerCase() === 'paper')
-                {
-                    switch(computerSelection){
-                        case 'Paper': 
-                            return "Draw! Play again!";
-                            break;
-                        case 'Scissors': 
-                            return "You lose! Scissors beats Paper!";
-                            break;
-                        case 'Rock': 
-                            return "You win! Paper beats Rock!";
-                            break;
-                    }
-                }
-                else if(playerSelection.toLowerCase() === 'scissors')
-                {
-                    switch(computerSelection){
-                        case 'Paper': 
-                            return "You win! Scissors beats Paper!";
-                            break;
-                        case 'Scissors': 
-                            return "Draw! Play again!";
-                            break;
-                        case 'Rock': 
-                            return "You lose! Rock beats Scissors!";
-                            break;
-                    }
-                }
-                else return("That is not a thing! Pick one of the three: Rock, Paper or Scissors!");
-                
-            }
-
-            function game(rounds) {
-                let userPoints = 0;
-                let computerPoints = 0;
-                let i=0;
-
-                while(i<rounds)
-                {
-                    let computerSelection = computerPlay();
-                    let playerSelection = prompt("Rock, paper or scissors?");
-                    let roundResult = playRound(playerSelection, computerSelection);
-                    
-
-                    if(roundResult.substr(0, 8) === 'You win!')
-                    {
-                        userPoints++;
-                        i++;
-                    }
-                    else if(playRound(playerSelection, computerSelection).substr(0, 8) === 'You lose')
-                    {
-                        computerPoints++;
-                        i++;
-                    }
-
-                    alert(roundResult + " You: " + userPoints + ", Computer: " + computerPoints);
-                }
-                
-
-                if(userPoints>computerPoints)
-                {
-                    alert("You win!");
-                }
-                else if(computerPoints>userPoints)
-                {
-                    alert("Computer wins");
-                }
-                else
-                {
-                    alert("Draw!");
-                }
-            }
-            
-            
-            game(5);
-
-            
-        </script>
+        </div>
     </body>
 </html>
